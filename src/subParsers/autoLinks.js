@@ -14,7 +14,7 @@ showdown.subParser('autoLinks', function (text, options, globals) {
   // Email addresses: <address@domain.foo>
 
   if (options.simplifiedAutoLink) {
-    text = text.replace(simpleURLRegex, '<a href=\"$1\">$1</a>');
+    text = text.replace(simpleURLRegex, '<a target="_blank" href=\"$1\">$1</a>');
     text = text.replace(simpleMailRegex, replaceMail);
   }
 

@@ -1037,7 +1037,7 @@ showdown.subParser('anchors', function (text, options, globals) {
     }
 
     url = showdown.helper.escapeCharacters(url, '*_', false);
-    var result = '<a href="' + url + '"';
+    var result = '<a target="_blank" href="' + url + '"';
 
     if (title !== '' && title !== null) {
       title = title.replace(/"/g, '&quot;');
@@ -1140,13 +1140,13 @@ showdown.subParser('autoLinks', function (text, options, globals) {
       simpleMailRegex = /(?:^|[ \n\t])([A-Za-z0-9!#$%&'*+-/=?^_`\{|}~\.]+@[-a-z0-9]+(\.[-a-z0-9]+)*\.[a-z]+)(?:$|[ \n\t])/gi,
       delimMailRegex  = /<(?:mailto:)?([-.\w]+@[-a-z0-9]+(\.[-a-z0-9]+)*\.[a-z]+)>/gi;
 
-  text = text.replace(delimUrlRegex, '<a href=\"$1\">$1</a>');
+  text = text.replace(delimUrlRegex, '<a target="_blank" href=\"$1\">$1</a>');
   text = text.replace(delimMailRegex, replaceMail);
   //simpleURLRegex  = /\b(((https?|ftp|dict):\/\/|www\.)[-.+~:?#@!$&'()*,;=[\]\w]+)\b/gi,
   // Email addresses: <address@domain.foo>
 
   if (options.simplifiedAutoLink) {
-    text = text.replace(simpleURLRegex, '<a href=\"$1\">$1</a>');
+    text = text.replace(simpleURLRegex, '<a target="_blank" href=\"$1\">$1</a>');
     text = text.replace(simpleMailRegex, replaceMail);
   }
 

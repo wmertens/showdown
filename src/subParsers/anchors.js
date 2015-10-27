@@ -39,7 +39,7 @@ showdown.subParser('anchors', function (text, options, globals) {
     }
 
     url = showdown.helper.escapeCharacters(url, '*_', false);
-    var result = '<a href="' + url + '"';
+    var result = '<a target="_blank" href="' + url + '"';
 
     if (title !== '' && title !== null) {
       title = title.replace(/"/g, '&quot;');
